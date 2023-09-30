@@ -1,27 +1,79 @@
+.jm_container{
+  width: 1240px;
+  max-width: 96%;
+  margin: 0 auto;
+}
+.content_container{
+  width: 700px;
+  max-width: 96%;
+  margin: auto;
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.jm_nav{
+  @apply block lg:flex justify-between lg:col-span-3 items-center absolute lg:static lg:w-auto top-0 left-0 overflow-hidden h-screen lg:h-auto duration-500 bg-[#fff] lg:bg-[transparent] lg:p-0 z-50
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.imgFilter{
+  filter: grayscale(100%);
+}
+.like_effect{
+  animation: likeAnimation 0.5s linear;
+}
+@keyframes likeAnimation{
+  0%{
+    transform: rotate(0deg);
+  }    
+  50%{
+    transform: rotate(0deg) scale(2);
+  }   
+  100%{
+    transform: rotate(0deg) scale(1);
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.jm_shadow{
+  box-shadow: 0px 0px 20px -1px #777;
+}
+
+/* crate post */
+::-webkit-scrollbar{
+  width: 10px;
+  background: transparent ;
+  
+}
+::-webkit-scrollbar-thumb{
+  width: 10px;
+  background-color: #45BD62;
+  border-radius: 10px;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover{
+  background-color: #777;
+}
+
+.jm_grid_three{
+  grid-template-areas: 
+  "one two"
+  "one three"
+  ;
+} 
+.jm_grid_four{
+  grid-template-areas: 
+  "one two"
+  "three four"
+  ;
+}  
+.jm_grid_three>img:nth-child(1){
+  grid-row: one;
+} 
+.jm_grid_three>img:nth-child(2){
+  grid-row: two;
+}
+.jm_grid_three>img:nth-child(3){
+  grid-row: three;
+}
+.jm_grid_three>img:nth-child(4){
+  grid-row: four;
 }

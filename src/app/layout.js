@@ -1,5 +1,7 @@
 import './globals.css'
+import Navbar from '@/shered/Navbar'
 import { Inter } from 'next/font/google'
+import AuthProvider from '@/Provider/AuthProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -11,7 +13,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+        <AuthProvider>
+            <body className={inter.className}>
+              <main>
+                <Navbar></Navbar>
+                {children}
+              </main>
+            </body>
+        </AuthProvider>
     </html>
   )
 }
