@@ -14,9 +14,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
         <AuthProvider>
-            <body className={inter.className}>
-              <main>
-                <Navbar></Navbar>
+            <body className={`${inter.className} bg-[#edf1f4]`}>
+              <Navbar></Navbar>
+              <main className='min-h-[calc(100vh-50px)]'>
                 {children}
               </main>
             </body>

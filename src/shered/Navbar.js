@@ -9,7 +9,7 @@ const Navbar = () => {
     const { user, logOut } = UserAuth();
     const [control, setControl] = useState(false);
     return (
-        <div className="bg-white">
+        <div className="shadow-xl">
             <nav className="flex justify-between items-center py-1 jm_container">
                 <div className="text-4xl">
                     <Link href="/">
@@ -44,8 +44,10 @@ const Navbar = () => {
                     <div className="relative">
                         <button onClick={() => setControl(!control)}>
                             <Image
+                                width={56}
+                                height={56}
                                 className="w-14 h-14 rounded-full object-cover border-2"
-                                src={user?.phohrefURL}
+                                src={user?.photoURL}
                                 alt="Profile Image"
                             />
                         </button>
@@ -55,10 +57,12 @@ const Navbar = () => {
                         >
                             <ul>
                                 <li>
-                                    <Link className="flex items-center gap-5">
+                                    <Link href={"/"} className="flex items-center gap-5">
                                         <Image
+                                            width={44}
+                                            height={44}
                                             className="w-11 h-11 rounded-full object-cover border-2"
-                                            src={user?.phohrefURL}
+                                            src={user?.photoURL}
                                             alt="Profile Image"
                                         />
                                         <span className="text-xl font-medium">
@@ -67,7 +71,7 @@ const Navbar = () => {
                                     </Link>
                                 </li>
                                 <li className="mt-4">
-                                    <buthrefn
+                                    <button
                                         onClick={logOut}
                                         className="flex gap-4 text-xl font-medium items-center"
                                     >
@@ -75,13 +79,13 @@ const Navbar = () => {
                                             <ImExit className="text-2xl" />
                                         </div>
                                         <span>Log Out</span>
-                                    </buthrefn>
+                                    </button>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 ) : (
-                    <Link href={"/login"}>
+                    <Link href="/login">
                         <button className="btn bg-[#014A97] text-white mt-10 lg:mt-0">
                             Login
                         </button>
